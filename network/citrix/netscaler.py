@@ -232,7 +232,7 @@ def main():
     rc = 0
     try:
         rc, result = core(module)
-    except urllib2.HTTPError as he:
+    except urllib2.HTTPError, he:
         module.fail_json(msg = he.reason, code = he.code, ns_api_error = json.loads(he.read()))
     except Exception, e:
         module.fail_json(msg=str(e))
